@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+<!---->
+{% block title %}{{ post.title }}{% endblock title %}
+<!---->
+{% block content %}
+<h2>Are you sure you want to delete "{{ post.title }}"?</h2>
+
+<form method="post" action="{% url 'posts:delete' id=post.id %}">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Yes, delete</button>
+  <a href="{% url 'posts:page' post.slug %}" class="btn btn-secondary">
+    Cancel
+  </a>
+</form>
+{% endblock content %}

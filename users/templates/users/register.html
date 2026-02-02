@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+<!---->
+{% block title %} Register new user {% endblock title %}
+<!---->
+
+{% block content %}
+<section
+  class="container d-flex justify-content-center align-items-center min-vh-100"
+>
+  <div class="col-12 col-sm-10 col-md-8 col-lg-5">
+    <h1 class="mb-4 text-center">Please Register bitch!!!</h1>
+    <div class="card shadow-sm p-4">
+      <form action="{% url 'users:register' %}" method="post">
+        {% csrf_token %}
+        <!---->
+        {{form}}
+        <div class="d-grid mt-3">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock content %}

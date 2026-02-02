@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+<!---->
+{% block title %} Update Post {% endblock %} {% block content %}
+<section class="container my-5" style="max-width: 800px">
+  <h2 class="mb-4">Update Post</h2>
+
+  <form
+    method="post"
+    enctype="multipart/form-data"
+    action="{% url 'posts:update' id=post.id %}"
+  >
+    {% csrf_token %} {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</section>
+{% endblock %}

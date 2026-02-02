@@ -1,0 +1,22 @@
+{% extends "layout.html" %}<!---->
+{% block title %}New Post{% endblock title %} {% block content %}
+<section class="container my-5" style="max-width: 800px">
+  <h2 class="mb-4 text-center text-md-start">Create New Post</h2>
+
+  <div class="card shadow-sm p-4">
+    <form
+      action="{% url 'posts:post' %}"
+      method="post"
+      enctype="multipart/form-data"
+      class="needs-validation"
+      novalidate
+    >
+      {% csrf_token %} {{ form.as_p }}
+
+      <div class="d-flex justify-content-end mt-3">
+        <button type="submit" class="btn btn-primary px-4">Publish</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock content %}
